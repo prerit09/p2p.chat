@@ -29,18 +29,24 @@ stages:
         npm run build
       displayName: 'npm install and build'
 
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     # - task: Npm@1
     #   displayName: 'Publish the project'
     #   inputs:
     #     command: publish
-    #     publishRegistry: useFeed
+    #     publishRegistry: useFeed  
     #     publishFeed: p2p/hack
+    
+    # - publish: '$(Build.ArtifactStagingDirectory)'
+    #   artifact: drop
         
     - task: AzureWebApp@1
       inputs:
         azureSubscription: 'P2P Video Chat'
         appName: 'p2pvideo'
-        package: '$(System.DefaultWorkingDirectory)/Artifacts/Packages/hack/p2p.chat'
+        package: '$(Build.ArtifactStagingDirectory)'
         customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
 
 # - stage: 'Deploy'
