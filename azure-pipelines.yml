@@ -40,7 +40,7 @@ stages:
       inputs:
         azureSubscription: 'P2P Video Chat'
         appName: 'p2pvideo'
-        package: 'p2p/hack'
+        package: '$(System.DefaultWorkingDirectory)/Artifacts/Packages/hack/p2p.chat'
         customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
 
 # - stage: 'Deploy'
