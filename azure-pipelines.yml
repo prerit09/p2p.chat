@@ -29,12 +29,12 @@ stages:
         npm run build
       displayName: 'npm install and build'
 
-    - task: Npm@1
-      displayName: 'Publish the project'
-      inputs:
-        command: publish
-        publishRegistry: useFeed
-        publishFeed: p2p/hack
+    # - task: Npm@1
+    #   displayName: 'Publish the project'
+    #   inputs:
+    #     command: publish
+    #     publishRegistry: useFeed
+    #     publishFeed: p2p/hack
         
     - task: AzureWebApp@1
       inputs:
