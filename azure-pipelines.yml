@@ -15,7 +15,6 @@ stages:
   jobs: 
   - job: 'Build'
     displayName: 'Build job'
-    
     pool:
       vmImage: 'windows-latest'
       demands:
@@ -25,8 +24,13 @@ stages:
       inputs:
         versionSpec: '10.x'
       displayName: 'Install Node.js'
-
     - script: |
         npm install
         npm run build
       displayName: 'npm install and build'
+    - task: Npm@1
+      displayName: 'Publish the project'
+      inputs:
+        command: publish
+        publishRegistry: p2pHack
+        publishFeed: p2p/hack
