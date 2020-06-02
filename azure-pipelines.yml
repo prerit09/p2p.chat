@@ -32,5 +32,5 @@ stages:
       displayName: 'Publish the project'
       inputs:
         command: publish
-        publishRegistry: p2pHack
+        publishRegistry: useFeed
         publishFeed: p2p/hack
