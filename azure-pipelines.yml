@@ -46,7 +46,7 @@ stages:
       inputs:
         azureSubscription: 'P2P Video Chat'
         appName: 'p2pvideo'
-        package: '$(Build.ArtifactStagingDirectory)'
+        # package: '$(Build.ArtifactStagingDirectory)'
         customWebConfig: '-Handler iisnode -NodeStartFile server.js -appType node'
 
 # - stage: 'Deploy'
